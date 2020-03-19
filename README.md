@@ -5,8 +5,8 @@ Like most tech nerds, it's always been a dream to work for NASA, so in lieu of a
 
 So far (2) custom modules have been created:
 
-    - nasa_apod
-    - nasa_earth
+  - nasa_apod
+  - nasa_earth
 
 Most of these custom modules require a *very* popular Python library called **requests** in order to function. See the **Getting Started** section for more help with installing **requests**.
 
@@ -45,5 +45,8 @@ Most of these custom modules require a *very* popular Python library called **re
 
 #### Using Ansible to access the Astronomical Picture of the Day (APOD) API with nasa_apod
 
+Too sleepy.
 
 #### Using Ansible to access NASA Earth API with nasa_earth
+
+zzzzzz.
