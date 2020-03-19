@@ -35,7 +35,7 @@ options:
         required: false
     dest:
         description:
-            - This is the location to save the file to. Defaults to user home directory.
+            - This is the location and name to save the PNG to. Defaults to /tmp/example.png
         required: false
 
 author:
@@ -72,7 +72,7 @@ def run_module():
         apikey=dict(type='str', required=False, default="DEMO_KEY"),
         lon=dict(type='float', required=True),
         lat=dict(type='float', required=True),
-        dest=dict(type='str', required=False, default="/tmp/")
+        dest=dict(type='str', required=False, default="/tmp/example.png")
     )
 
     # seed the result dict in the object
