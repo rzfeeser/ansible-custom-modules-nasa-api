@@ -1,0 +1,22 @@
+---
+# author: Russell Zachary Feeser
+# trainer_and_consultant: [automation, telecom, 5g, devops, api design, cloud]
+# webpage: https://rzfeeser.com
+- name: NASA Earth API
+  hosts: localhost
+  gather_facts: no
+  
+  ## for more information on the NASA Earth API
+  ## https://api.nasa.gov/#earth
+  
+  ## To obtain an 'apikey' visit https://api.nasa.gova/
+
+  ## This module will download a PNG of the provided lat ## and lon
+
+  tasks:
+  - name: Custom module to interact with NASA imagery and Google Earth
+    nasa_earth:
+      lon: 77.593675   # your longitude
+      lat: 12.972172   # your latitude
+      apikey: DEMO_KEY # replace with your key
+      dest: /home/student/example.png  # location to download image
