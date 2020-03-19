@@ -12,11 +12,11 @@ Most of these custom modules require a *very* popular Python library called **re
 
 ### Goals
 
-    - Write and maintain Ansible modules for all of the NASA APIs
-    - Help other learn about automation and APIs
-    - Get a shout out on NASA's social media feeds
-    - Hired to consult or teach cool NASA cats about automation with Ansible and Python 
-    - Work on a project with renowned driller Bruce Willis, after agreeing to consult on a dangerous space mission to save earth
+  - Write and maintain Ansible modules for all of the NASA APIs
+  - Help other learn about automation and APIs
+  - Get a shout out on NASA's social media feeds
+  - Hired to consult or teach cool NASA cats about automation with Ansible and Python 
+  - Work on a project with renowned driller Bruce Willis, after agreeing to consult on a dangerous space mission to save earth
 
 
 ### Getting Started
