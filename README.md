@@ -1,4 +1,5 @@
 # ansible-custom-modules-nasa-api
+
 By day, I'm a trainer and consultant for private industry. Many of my students are interested in how to architect custom modules for Ansible, so this repo is dedicated to some of the custom modules I've written.
 
 Like most tech nerds, it's always been a dream to work for NASA, so in lieu of actually working for NASA, I did the next best thing and began writing custom Ansible modules around the NASA APIs available on https://api.nasa.gov
@@ -45,18 +46,40 @@ Most of these custom modules require a *very* popular Python library called **re
 
     `git clone https://github.com/rzfeeser/ansible-custom-modules-nasa-api/ ~/ans/`
 
-0. Check out the playbooks in the `~/ans/` directory. All of these should work. To try one out, simply type:
+0. Move into the directory you cloned the code to.
+
+    `cd ~/ans`
+
+0. Check out the playbooks in the `~/ans/` directory. All of these should work.
+
+    `ls`
+
+0. To try running an Ansible playbook with my custom NASA API modules, simply type:
 
     `ansible-playbook ~/ans/playbook-example-nasa_apod.yml`
 
+0. *NOTE: If the Ansible playbook `playbook-example-nasa_neow.yml`, fails, it is likely because you do not have `pyyaml` installed. This is required to conver the NEOW data to a YAML format. To install this library, see notes on this module within this README file.*
+
+#### Using Ansible to access NASA APIs
+
+A key is common to all modules, which is `apikey`. Be sure to define it, or it will default to `DEMO_KEY`, although `DEMO_KEY` is legal, it has a very limited number of uses, at which time, your playbook will stop working. Getting an API key is easy. Just visit https://api.nasa.gov  
+
+When you sign up for a key, be sure to comment that the reason you're signing up for a key is to interact with the Ansible code found in this repository (rzfeeser/ansible-custom-modules-nasa-api/). Thanks! 
+
 #### Using Ansible to access the Astronomical Picture of the Day (APOD) API with nasa_apod
 
-Too sleepy.
+Start by reviewing the example playbook within this repostiory.
+
+After the `nasa_apod` task runs, the Astronomical Picture of the Day will be saved on the target hosts as `apod.png` by default. The user is able to define the date of the photo they would like via the `date` paramater using YYYY-MM-DD format. By default, the current date will be returned. The `hd` parameter controls the return of HD image or standard image data, the default is HD. If a different name or path is desired, the `dest` parameter may be defined with a full path and name.
+*Future Feature Request: module parameter dest <- default to current directory, allow relative path, full path, and provide a default name apod.png if no name is provided*
 
 #### Using Ansible to access NASA Earth API with nasa_earth
 
-zzzzzz.
+Start by reviewing the example playbook within this repostiory.
 
 #### Using Ansible to access NASA Near Earth Object Webservice (NEOW) API with nasa_neow
 
-do feesers dream of electric sheep?
+Start by reviewing the example playbook within this repository.  
+
+After the `nasa_neow` task runs, the JSON data returned by the NEOW API service will be convered to YAML and saved in the format `neow-YYYY-MM-DDtoYYYY-MM-DD.yml`. By default this data will appear in the local folder. However, the save path can be controlled by the user. This module will only show **CHANGED** if the YAML output file is created.
+*Future Feature Request: module parameter force:bool <- allow a user to force the creation of the YAML file ever time (overwrite it if it exists). Should default to False/no*
