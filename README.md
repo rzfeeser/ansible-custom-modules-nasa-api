@@ -4,7 +4,7 @@ By day, I'm a trainer and consultant for private industry. Many of my students a
 
 Like most tech nerds, it's always been a dream to work for NASA, so in lieu of actually working for NASA, I did the next best thing and began writing custom Ansible modules around the NASA APIs available on https://api.nasa.gov
 
-So far (3) custom modules have been created:
+So far (3) custom Ansible modules have been created:
 
   - nasa_apod
   - nasa_earth
