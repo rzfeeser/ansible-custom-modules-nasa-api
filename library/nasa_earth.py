@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Copyright: (c) 2020, Zach Feeser <rzfeeser@example.org>
+# Copyright: (c) 2020, Zach Feeser <rzfeeser@users.noreply.github.com>
 # https://alta3.com || https://rzfeeser.com 
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 

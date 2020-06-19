@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Copyright: (c) 2020, Russell Zachary Feeser <rzfeeser@noreply  >
+# Copyright: (c) 2020, Russell Zachary Feeser <rzfeeser@users.noreply.github.com>
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 ANSIBLE_METADATA = {
