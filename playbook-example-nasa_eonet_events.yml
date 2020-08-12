@@ -1,0 +1,23 @@
+---
+# author: Russell Zachary Feeser
+# trainer_and_consultant: [automation, telecom, 5g, devops, api design, cloud, docker, kubernetes]
+# webpage: https://rzfeeser.com
+- name: NASA EONET Event API
+  hosts: localhost
+  gather_facts: no
+  
+  ## for more information on the NASA EONET Event API
+  ## https://api.nasa.gov/ or https://eonet.sci.gsfc.nasa.gov/docs/v3
+  
+  tasks:
+  - name: Custom module to interact with NASA EONET Events API
+    nasa_eonet_events:
+            status: open
+            end: 2019-08-15
+            savepath: /home/student/
+    register: results
+
+  - name: display results
+    debug:
+      var: results
+      verbosity: 1  

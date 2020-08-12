@@ -147,6 +147,9 @@ def run_module():
     with open(module.params['dest'], 'wb') as f:
         f.write(apodimage.content)
 
+    # a photo being written out is a state change
+    result['changed'] = True
+
     # in the event of a successful module execution, you will want to
     # simple AnsibleModule.exit_json(), passing the key/value results
     module.exit_json(**result)
