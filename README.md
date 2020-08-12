@@ -82,9 +82,11 @@ Start by reviewing the example playbook within this repostiory.
 
 Start by reviewing the example playbook within this repository.  
 
-After the `nasa_neow` task runs, the JSON data returned by the NEOW API service will be convered to YAML and saved in the format `neow-YYYY-MM-DDtoYYYY-MM-DD.yml`. By default this data will appear in the local folder. However, the save path can be controlled by the user. This module will only show **CHANGED** if the YAML output file is created.
+After the `nasa_neow` task runs, the JSON data returned by the NEOW API service will be convered to YAML and saved in the format `neow-YYYY-MM-DDtoYYYY-MM-DD.yml`. By default this file will appear in the local folder. However, the save path can be controlled by the user. This module will only show **CHANGED** if the YAML output file is created.
 *Future Feature Request: module parameter force:bool <- allow a user to force the creation of the YAML file ever time (overwrite it if it exists). Should default to False/no*
 
 #### Using Ansible to access NASA Earth Observatory Natural Event Tracker (EONET) Event API with nasa_eonet_event
 
 Start by reviewing the example playbook within this repository.
+
+After the `nasa_eonet_event` tasks runs, the JSON data returned by the EONET Event API service will be converted to YAML and saved in the format `eonet-YYYY-MM-DDtoYYYY-MM-DD.yml`. By default this file will appear in the local folder. However, the save path can be controlled by the user. This module will only show **CHANGED** if the YAML output file is created.
