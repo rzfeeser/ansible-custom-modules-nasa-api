@@ -44,12 +44,13 @@ author:
 
 EXAMPLES = '''
 # Pass in a message
-- name: Test with a message
+- name: Pull an image from the NASA Image API
   nasaimagery:
     apikey: DEMO_KEY
     lon:
     lat:
-    dest: /tmp/
+    dest: /tmp/example.png
+    date: 2016-03-09
 '''
 
 RETURN = '''
@@ -70,6 +71,7 @@ def run_module():
     # define available arguments/parameters a user can pass to the module
     module_args = dict(
         apikey=dict(type='str', required=False, default="DEMO_KEY"),
+        date=dict(type='str', required=False, default="2016-03-09"),
         lon=dict(type='float', required=True),
         lat=dict(type='float', required=True),
         dest=dict(type='str', required=False, default="/tmp/example.png")
@@ -97,7 +99,7 @@ def run_module():
 
     # https://api.nasa.gov/planetary/earth/imagery/?lon=77.593675&lat=12.972172&date=2016-03-09&api_key=DEMO_KEY
 
-    nasaurl = f"https://api.nasa.gov/planetary/earth/imagery/?lon={ module.params['lon'] }&lat={ module.params['lat'] }&date=2017-01-01&api_key={ module.params['apikey'] }"
+    nasaurl = f"https://api.nasa.gov/planetary/earth/imagery/?lon={ module.params['lon'] }&lat={ module.params['lat'] }&date={ module.params['date'] }&api_key={ module.params['apikey'] }"
 
     result['url'] = nasaurl
 
@@ -114,16 +116,16 @@ def run_module():
     if nasaresp.status_code != 200:
         module.fail_json(msg='A non-200 response was returned from NASA', **result)        
     # strip off json response and reassign to nasaresp
-    nasaresp = nasaresp.json()
+    # nasaresp = nasaresp.json()
 
     # begin Google Earth lookup (url taken from NASA lookup)
-    googleearth = requests.get( nasaresp["url"] )
+    # googleearth = requests.get( nasaresp["url"] )
     # if a non-200 response, then FAIL
-    if googleearth.status_code != 200:
+    if nasaresp.status_code != 200:
         module.fail_json(msg='A non-200 response was returned from Google Earth', **result)
     # save the picture to the dest provided
     with open( module.params['dest'], 'wb') as f:
-        f.write(googleearth.content)
+        f.write(nasaresp.content)
 
     result['changed'] = True
 

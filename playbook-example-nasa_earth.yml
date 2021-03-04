@@ -20,3 +20,5 @@
       lat: 12.972172   # your latitude
       apikey: DEMO_KEY # replace with your key
       dest: /home/student/example.png  # location to download image
+      date: 2016-03-09  # This is the default date, but supply your own YYYY-MM-DD
+                        # The image closest to your date will be returned by the API
