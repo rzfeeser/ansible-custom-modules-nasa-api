@@ -4,13 +4,14 @@ By day, I'm a trainer and consultant for private industry. Many of my students a
 
 Like most tech nerds, it's always been a dream to work for NASA, so in lieu of actually working for NASA, I did the next best thing and began writing custom Ansible modules around the NASA APIs available on https://api.nasa.gov
 
-So far (5) custom Ansible modules have been created:
+So far (6) custom Ansible modules have been created:
 
   - nasa_apod
   - nasa_earth
   - nasa_neow
   - nasa_eonet_event
   - nasa_genelab
+  - nasa_mars_weather
 
 Most of these custom modules require a *very* popular Python library called **requests** installed on the hosts they execute on in order to function. Additionally, the nasa_neow module requires the **pyyaml** library to perform the JSON to YAML conversion. See the **Getting Started** section for more help with installing these libraries.
 
@@ -96,4 +97,6 @@ After the `nasa_eonet_event` tasks runs, the JSON data returned by the EONET Eve
 
 Start by reviewing the example playbook within this repository. *NOTE: There is not requirement to use an API KEY with this service*
 
+#### Using ANsible to access NASA Mars Weather API with nasa_mars_weather
 
+Start by reviewing the example playbook within this repository.
