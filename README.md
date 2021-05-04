@@ -4,12 +4,13 @@ By day, I'm a trainer and consultant for private industry. Many of my students a
 
 Like most tech nerds, it's always been a dream to work for NASA, so in lieu of actually working for NASA, I did the next best thing and began writing custom Ansible modules around the NASA APIs available on https://api.nasa.gov
 
-So far (4) custom Ansible modules have been created:
+So far (5) custom Ansible modules have been created:
 
   - nasa_apod
   - nasa_earth
   - nasa_neow
   - nasa_eonet_event
+  - nasa_genelab
 
 Most of these custom modules require a *very* popular Python library called **requests** installed on the hosts they execute on in order to function. Additionally, the nasa_neow module requires the **pyyaml** library to perform the JSON to YAML conversion. See the **Getting Started** section for more help with installing these libraries.
 
@@ -90,3 +91,9 @@ After the `nasa_neow` task runs, the JSON data returned by the NEOW API service 
 Start by reviewing the example playbook within this repository. *NOTE: There is no requirement to use an API KEY with this service*
 
 After the `nasa_eonet_event` tasks runs, the JSON data returned by the EONET Event API service will be converted to YAML and saved in the format `eonet-YYYY-MM-DDtoYYYY-MM-DD.yml`. By default this file will appear in the local folder. However, the save path can be controlled by the user. This module will only show **CHANGED** if the YAML output file is created.
+
+#### Using Ansible to access NASA GeneLab API with nasa_genelab
+
+Start by reviewing the example playbook within this repository. *NOTE: There is not requirement to use an API KEY with this service*
+
+
