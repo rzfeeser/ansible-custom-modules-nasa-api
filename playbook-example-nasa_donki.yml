@@ -1,0 +1,23 @@
+---
+- name: Lookups of DONKI notifications via DONKI API
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Return data from 2021-01-01 to 2021-01-04
+      nasa_donki:
+        name: jan_data
+        apikey: DEMO_KEY # api keys avail avail at api.nasa.gov
+        startdate: 2021-01-01
+        enddate: 2021-01-04
+        datatype: all   # could be: all, FLR, SEP, CME, IPS, MPC, GST, RBE, or report
+
+    - name: Return data from last 7 days
+      nasa_donki:
+      register: result
+
+    - name: Display the return values
+      debug:
+              var: result
+              verbosity: 1
