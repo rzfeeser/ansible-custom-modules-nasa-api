@@ -1,0 +1,33 @@
+---
+- name: Automating NASA TLE API with custom module
+  connection: local
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+          - name: Query the NASA TLE API and register results
+            nasa_tle:
+            register: results
+
+          - name: Display the results
+            debug:
+                    var: results
+
+          - name: Query the NASA TLE API by satellite name and register results
+            nasa_tle:
+                    sat_name: IHOPSAT-TD
+            register: results
+
+          - name: Display the results
+            debug:
+                    var: results
+
+          - name: Query the NASA TLE API by satellite number and register results
+            nasa_tle:
+                    sat_num: 43809
+            register: results
+
+          - name: Display the results
+            debug:
+                    var: results
+
