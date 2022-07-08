@@ -100,6 +100,18 @@ After the `nasa_eonet_event` tasks runs, the JSON data returned by the EONET Eve
 
 Start by reviewing the example playbook within this repository. *NOTE: There is not requirement to use an API KEY with this service*
 
-#### Using ANsible to access NASA Mars Weather API with nasa_mars_weather
+#### Using Ansible to access NASA Mars Weather API with nasa_mars_weather
+
+Start by reviewing the example playbook within this repository.
+
+#### Using Ansible to access NASA Mars Rover Photos API with nasa_mars_rover_photos
+
+Start by reviewing the example playbook within this repository.
+
+#### Using Ansible to access NASA TLE API with nasa_tle
+
+Start by reviewing the example playbook within this repository.
+
+#### Using Ansible to access NASA DONKI API with nasa_donki
 
 Start by reviewing the example playbook within this repository.
