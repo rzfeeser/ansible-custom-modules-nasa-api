@@ -1,5 +1,11 @@
 # ansible-custom-modules-nasa-api
 
+Author: Russell Zachary Feeser
+GitHub: @RZFeeser
+ Email: rzfeeser@users.noreply.github.com
+     
+### Overview
+
 Many of my students are interested in how to architect custom modules for Ansible, so this repo is dedicated to some of the custom modules I've written.
 
 Like most tech nerds, it's always been a dream to work for NASA, so in lieu of actually working for NASA, I did the next best thing and began writing custom Ansible modules around the NASA APIs available on https://api.nasa.gov
