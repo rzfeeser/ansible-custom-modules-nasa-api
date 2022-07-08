@@ -1,8 +1,8 @@
 # ansible-custom-modules-nasa-api
 
-Author: Russell Zachary Feeser
-GitHub: @RZFeeser
- Email: rzfeeser@users.noreply.github.com
+Author: Russell Zachary Feeser  
+GitHub: @RZFeeser  
+ Email: rzfeeser@users.noreply.github.com  
      
 ### Overview
 
