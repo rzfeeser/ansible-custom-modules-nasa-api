@@ -4,14 +4,17 @@ Many of my students are interested in how to architect custom modules for Ansibl
 
 Like most tech nerds, it's always been a dream to work for NASA, so in lieu of actually working for NASA, I did the next best thing and began writing custom Ansible modules around the NASA APIs available on https://api.nasa.gov
 
-So far (6) custom Ansible modules have been created:
+So far (9) custom Ansible modules have been created:
 
   - nasa_apod
+  - nasa_donki
   - nasa_earth
-  - nasa_neow
   - nasa_eonet_event
   - nasa_genelab
+  - nasa_mars_rover_photos
   - nasa_mars_weather
+  - nasa_neow
+  - nasa_tle
 
 Most of these custom modules require a *very* popular Python library called **requests** installed on the hosts they execute on in order to function. Additionally, the nasa_neow module requires the **pyyaml** library to perform the JSON to YAML conversion. See the **Getting Started** section for more help with installing these libraries.
 
