@@ -4,6 +4,9 @@
   connection: local
   gather_facts: false
 
+  collections:
+      - rzfeeser.nasa
+
   tasks:
     - name: Return data from 2021-01-01 to 2021-01-04
       nasa_donki:

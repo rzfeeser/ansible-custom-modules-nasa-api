@@ -5,7 +5,11 @@
 - name: NASA EONET Event API
   hosts: localhost
   gather_facts: no
-  
+  connection: local
+
+  collections:
+      - rzfeeser.nasa
+
   ## for more information on the NASA EONET Event API
   ## https://api.nasa.gov/ or https://eonet.sci.gsfc.nasa.gov/docs/v3
   

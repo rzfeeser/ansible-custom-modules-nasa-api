@@ -4,8 +4,11 @@
 # webpage: https://rzfeeser.com
 - name: NASA Earth API
   hosts: localhost
+  connection: local
   gather_facts: no
-  
+
+  collections:
+      - rzfeeser.nasa
   ## for more information on the NASA Earth API
   ## https://api.nasa.gov/#earth
   

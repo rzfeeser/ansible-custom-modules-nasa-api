@@ -3,6 +3,9 @@
   hosts: localhost
   gather_facts: false
 
+  collections:
+      - rzfeeser.nasa
+
   tasks:
         - name: Is the Earth at risk of a NEO event
           nasa_neow:

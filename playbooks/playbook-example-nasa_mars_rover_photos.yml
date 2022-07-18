@@ -1,6 +1,11 @@
 ---
 - name: First NASA Mars Rover Photos Playbook
   hosts: localhost
+  connection: local
+  gather_facts: no
+
+  collections:
+      - rzfeeser.nasa
 
   tasks:
         # Obtain Opportunity Mars Rover Photos data with the API key "DEMO_KEY"

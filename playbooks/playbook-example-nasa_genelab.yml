@@ -3,6 +3,9 @@
   hosts: localhost
   connection: local
 
+  collections:
+      - rzfeeser.nasa
+
   tasks:
 
         - name: Return results from NASA Genelab API into gene-results.txt
