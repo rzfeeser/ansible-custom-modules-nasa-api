@@ -1,0 +1,26 @@
+---
+- name: First NASA APOD playbook
+  hosts: localhost
+
+  tasks:
+        # Obtain APOD from January 01, 2019 in low res.
+        - name: Lookup the NASA APOD API for 2019-01-01 in std def
+          nasa_apod:
+            apikey: DEMO_KEY
+            date: "2019-01-01"  # Date should be surrounded in quotes
+            hd: false
+            dest: /home/student/apod.png    # save file as apod.png
+
+        # Obtain APOD from March 19, 2020 in HD res
+        - name: Lookup the NASA APOD API for 2020-03-18 in std def
+          nasa_apod:
+            apikey: DEMO_KEY
+            date: "2020-03-18"  # Date should be surrounded in quotes
+            hd: true
+            dest: /home/student/apod20200318.png    # save file as apod20200318.png
+
+        # Obtain TODAYs APOD
+        - name: Lookup the NASA APOD API for TODAY in HD def
+          nasa_apod:
+            apikey: DEMO_KEY
+            dest: /home/student/apodToday.png    # save file as apodToday.png

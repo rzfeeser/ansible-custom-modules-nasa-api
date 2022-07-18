@@ -1,0 +1,37 @@
+---
+# author: Russell Zachary Feeser
+# trainer_and_consultant: [automation, telecom, 5g, devops, api design, cloud, docker, kubernetes]
+# webpage: https://rzfeeser.com
+- name: NASA EONET Event API
+  hosts: localhost
+  gather_facts: no
+  
+  ## for more information on the NASA EONET Event API
+  ## https://api.nasa.gov/ or https://eonet.sci.gsfc.nasa.gov/docs/v3
+  
+  tasks:
+  - name: Save all open events that have started since 2019-08-15 within /home/nancy_roman/
+    nasa_eonet_events:
+            status: open                    # controls API parameter "status" - description @ https://eonet.sci.gsfc.nasa.gov/docs/v3
+            start: 2019-08-15               # controls API parameter "start" - formatted YYYY-MM-DD - description @ https://eonet.sci.gsfc.nasa.gov/docs/v3
+            savepath: /home/nancy_roman/    # location of where to save the output file /home/nancy_roman/
+    register: results                       # save the JSON returned to this module (not necessary to use the module)
+
+  - name: display JSON saved by results var
+    debug:
+      var: results      # display the variable results created by the last module (not necessary, reference only)
+      verbosity: 1      # to see this output, use -v flag when you run the playbook
+
+  - name: Get current active events but limit results to 5 events saving to /tmp/buzz_aldrin/ 
+    nasa_eonet_events:
+            status: open       # controls API parameter "status" - description @ https://eonet.sci.gsfc.nasa.gov/docs/v3
+            limit: 5           # controls API parameter "limit" - limits results to 5 events - description @ https://eonet.sci.gsfc.nasa.gov/docs/v3
+            savepath: /tmp/buzz_aldrin/   # location of where to save the output file /tmp/buzz_aldrin/
+            
+            
+  - name: Return closed events from 2019 to 2020 and save to directory /tmp/
+    nasa_eonet_events:
+            status: closed       # controls API parameter "status" - description @ https://eonet.sci.gsfc.nasa.gov/docs/v3
+            start: 2019-01-01    # Jan 01 2019
+            end: 2020-01-01      # Jan 01 2020
+            savepath: /tmp/      # locatino of where to save the output file /tmp/

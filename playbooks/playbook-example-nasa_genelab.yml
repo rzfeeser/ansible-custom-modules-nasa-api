@@ -1,0 +1,10 @@
+---
+- name: Trying nasa genelab module we just created
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+        - name: Return results from NASA Genelab API into gene-results.txt
+          nasa_genelab:
+            glds_study_ids: 87,89

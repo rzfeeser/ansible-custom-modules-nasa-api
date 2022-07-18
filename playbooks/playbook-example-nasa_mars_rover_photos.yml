@@ -1,0 +1,20 @@
+---
+- name: First NASA Mars Rover Photos Playbook
+  hosts: localhost
+
+  tasks:
+        # Obtain Opportunity Mars Rover Photos data with the API key "DEMO_KEY"
+        - name: Test with a message
+          nasa_mars_rover_photos:
+                apikey: DEMO_KEY
+                rover_name: opportunity
+                sol: "1000"
+          register: results
+
+        - name: Show the JSON we lookuped
+          debug:
+                  var: results
+
+        - name: Show the photo list we looked up
+          debug:
+                  var: results.json

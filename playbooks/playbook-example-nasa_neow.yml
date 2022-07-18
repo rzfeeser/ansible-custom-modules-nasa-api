@@ -1,0 +1,16 @@
+---
+- name: Running our custom NEOW module
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+        - name: Is the Earth at risk of a NEO event
+          nasa_neow:
+            startdate: "2020-06-17"
+            enddate: "2020-06-18"
+            apikey: "DEMO_KEY"     # API keys are available from NASA at https://api.nasa.gov/
+          register: results
+
+        - name: Display the JSON that was returned by our custom NEOW module
+          debug:
+            var: results
