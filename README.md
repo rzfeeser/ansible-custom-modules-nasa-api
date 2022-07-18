@@ -28,7 +28,7 @@ Most of these custom modules require a *very* popular Python library called **re
 
 This repository has recently been converted to a collection, `rzfeeser.nasa`. To install, use:
 
-    `ansible-galaxy collection install git@github.com:rzfeeser/ansible-custom-modules-nasa-api`
+    ansible-galaxy collection install git@github.com:rzfeeser/ansible-custom-modules-nasa-api
 
 ### Goals
 
