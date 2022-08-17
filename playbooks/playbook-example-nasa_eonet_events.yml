@@ -8,7 +8,7 @@
   connection: local
 
   collections:
-      - rzfeeser.nasa
+      - rzfeeser.nasa_api
 
   ## for more information on the NASA EONET Event API
   ## https://api.nasa.gov/ or https://eonet.sci.gsfc.nasa.gov/docs/v3
