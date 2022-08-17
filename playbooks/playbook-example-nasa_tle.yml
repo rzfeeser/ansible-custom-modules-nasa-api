@@ -5,7 +5,7 @@
   gather_facts: false
 
   collections:
-      - rzfeeser.nasa
+      - rzfeeser.nasa_api
 
   tasks:
           - name: Query the NASA TLE API and register results
