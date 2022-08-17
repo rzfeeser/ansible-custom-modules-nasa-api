@@ -4,7 +4,7 @@
   gather_facts: false
 
   collections:
-      - rzfeeser.nasa
+      - rzfeeser.nasa_api
 
   tasks:
         - name: Is the Earth at risk of a NEO event
