@@ -5,7 +5,7 @@
   gather_facts: false
 
   collections:
-      - rzfeeser.nasa
+      - rzfeeser.nasa_api
 
   tasks:
     - name: Return data from 2021-01-01 to 2021-01-04
