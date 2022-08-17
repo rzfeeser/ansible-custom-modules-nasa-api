@@ -5,7 +5,7 @@
   gather_facts: no # not necessary
 
   collections:
-      - rzfeeser.nasa   # required include this collection in Ansible's search space
+      - rzfeeser.nasa_api   # required include this collection in Ansible's search space
 
   tasks:
         # Obtain APOD from January 01, 2019 in low res.
