@@ -5,7 +5,7 @@
   gather_facts: no
 
   collections:
-      - rzfeeser.nasa
+      - rzfeeser.nasa_api
 
   tasks:
         # Obtain Opportunity Mars Rover Photos data with the API key "DEMO_KEY"
