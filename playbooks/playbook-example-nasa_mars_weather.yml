@@ -3,7 +3,9 @@
   connection: local
   gather_facts: false
 
-
+  collections:
+      - rzfeeser.nasa_api   # required include this collection in Ansible's search space
+      
   tasks:
   - name: Pull Mars weather
     nasa_mars_weather:
