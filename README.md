@@ -62,7 +62,7 @@ This repository has recently been converted to a collection, `rzfeeser.nasa`. To
 
 0. Install the collection, `rzfeeser.nasa`
 
-    `ansible-galaxy collection install git@github.com:rzfeeser/ansible-custom-modules-nasa-api`
+    `ansible-galaxy collection install git+https://github.com/rzfeeser/ansible-custom-modules-nasa-api`
 
 0. Within this repo, pick one of the playbooks within `playbooks/` and try running it with:
 
