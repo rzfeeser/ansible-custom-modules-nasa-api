@@ -4,13 +4,10 @@
   connection: local
   gather_facts: no # not necessary
 
-  collections:
-      - rzfeeser.nasa_api   # required include this collection in Ansible's search space
-
   tasks:
         # Obtain APOD from January 01, 2019 in low res.
         - name: Lookup the NASA APOD API for 2019-01-01 in std def
-          nasa_apod:
+          rzfeeser.nasa_api.nasa_apod:
             apikey: DEMO_KEY
             date: "2019-01-01"  # Date should be surrounded in quotes
             hd: false
@@ -18,7 +15,7 @@
 
         # Obtain APOD from March 19, 2020 in HD res
         - name: Lookup the NASA APOD API for 2020-03-18 in std def
-          nasa_apod:
+          rzfeeser.nasa_api.nasa_apod:
             apikey: DEMO_KEY
             date: "2020-03-18"  # Date should be surrounded in quotes
             hd: true
@@ -26,6 +23,6 @@
 
         # Obtain TODAYs APOD
         - name: Lookup the NASA APOD API for TODAY in HD def
-          nasa_apod:
+          rzfeeser.nasa_api.nasa_apod:
             apikey: DEMO_KEY
             dest: apodToday.png    # save file as apodToday.png
