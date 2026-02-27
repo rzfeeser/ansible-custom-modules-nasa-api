@@ -1,0 +1,71 @@
+name: Build & Publish Ansible Execution Environment
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "execution-environment.yml"
+      - ".github/workflows/build-ee.yml"
+      - "**/requirements.yml"
+      - "**/requirements.txt"
+      # - "**/bindep.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  # Change these two if you want a different image name/tag strategy.
+  IMAGE_NAME: nasa-ee
+  IMAGE_TAG: latest
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ansible-builder
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible-builder
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+
+      - name: Log in to GitHub Container Registry (ghcr.io)
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Compute image reference
+        id: img
+        run: |
+          OWNER_LC="$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')"
+          REPO_LC="$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+          IMAGE="ghcr.io/${OWNER_LC}/${REPO_LC}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
+          echo "image=${IMAGE}" >> "$GITHUB_OUTPUT"
+
+        # removed from above... use this if you want to include repo name in container
+        # REPO_LC="$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+        # IMAGE="ghcr.io/${OWNER_LC}/${REPO_LC}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
+
+      - name: Build Execution Environment image with ansible-builder
+        run: |
+          ansible-builder build \
+            -f execution-environment.yml \
+            -t "${{ steps.img.outputs.image }}" \
+            --container-runtime podman
+
+      - name: Push image to GHCR
+        run: |
+          podman push "${{ steps.img.outputs.image }}"
