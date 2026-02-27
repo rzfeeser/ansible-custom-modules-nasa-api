@@ -10,27 +10,23 @@ DOCUMENTATION = r'''
 ---
 module: nasa_donki
 
-short_description: interaction with nasa api service @ https://api.nasa.gov/ and https://ccmc.gsfc.nasa.gov/donki/ 
+short_description: interaction with nasa api service @ "https://api.nasa.gov/" and "https://ccmc.gsfc.nasa.gov/donki/" 
 
 # If this is part of a collection, you need to use semantic versioning,
 # i.e. the version is of the form "2.5.0" and not "2.4".
 version_added: "1.0.0"
 
-description: interaction with nasa donki notification service. The structure of this api is
+description: interaction with nasa donki notification service. The structure of this api is "https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key=DEMO_KEY". Interaction with this API requires an API keys. Keys are avail @ https://api.nasa.gov/.
 
-https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key=DEMO_KEY
-
-Interaction with this API requires an API keys. Keys are avail @ https://api.nasa.gov/.
-
-requirements: The requests library (python) is required on the host that executes this module. https://docs.python-requests.org/en/master/
+requirements: The requests library (python) is required on the host that executes this module. See "https://docs.python-requests.org/en/master/"
 
 options:
     name:
-        description: This is the name of the file to save. No need to provide a file extension (.txt will be appended to the name provided). Default: results.txt
+        description: This is the name of the file to save. No need to provide a file extension (.txt will be appended to the name provided). Default is results.txt
         required: false
         type: str
     dest:
-        description: Full path to where output file should be saved. (default output file name is results.json). Include trailing. Default: /tmp/
+        description: Full path to where output file should be saved. (default output file name is results.json). Include trailing. Default is /tmp/
         required: false
         type: str
     apikey:
@@ -38,15 +34,15 @@ options:
         required: false
         type: str
     startdate:
-        description: in format 'yyyy-MM-dd'. Default: if left out would default to 7 days prior to the current UT date.
+        description: in format 'yyyy-MM-dd'. The default if left out would default to 7 days prior to the current UT date.
         required: false
         type: str
     enddate:
-        description: in format 'yyyy-MM-dd'. Default: if left out would default to current UT date
+        description: in format 'yyyy-MM-dd'. Default if left out would default to current UT date
         required: false
         type: str
     datatype:
-        description: 'type' could be: all, FLR, SEP, CME, IPS, MPC, GST, RBE, or report. Default: 'all'
+        description: 'type' could be the following -> all, FLR, SEP, CME, IPS, MPC, GST, RBE, or report. Default is 'all'
         required: false
         type: str
 
