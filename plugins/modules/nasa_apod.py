@@ -143,12 +143,13 @@ def run_module():
     if apodimage.status_code != 200:
         module.fail_json(msg=f'A {nasaresp.status_code} response was returned as we tried to download APOD image from NASA. Huston, we have a problem!', **result)
 
-    # download the image to the location provided by the user
-    with open(module.params['dest'], 'wb') as f:
-        f.write(apodimage.content)
-
-    # a photo being written out is a state change
-    result['changed'] = True
+    if apodimage.endswith(".png"):
+        # download the image to the location provided by the user
+        with open(module.params['dest'], 'wb') as f:
+            f.write(apodimage.content)
+    
+        # a photo being written out is a state change
+        result['changed'] = True
 
     # in the event of a successful module execution, you will want to
     # simple AnsibleModule.exit_json(), passing the key/value results
