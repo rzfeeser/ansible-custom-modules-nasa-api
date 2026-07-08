@@ -143,7 +143,7 @@ def run_module():
     if apodimage.status_code != 200:
         module.fail_json(msg=f'A {nasaresp.status_code} response was returned as we tried to download APOD image from NASA. Huston, we have a problem!', **result)
 
-    if apodimage.endswith(".png"):
+    if result['apodurl'].endswith(".png") or result['apodhdurl'].endswith(".png"):
         # download the image to the location provided by the user
         with open(module.params['dest'], 'wb') as f:
             f.write(apodimage.content)
