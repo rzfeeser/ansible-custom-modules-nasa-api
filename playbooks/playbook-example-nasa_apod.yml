@@ -1,4 +1,7 @@
 ---
+# author: Russell Zachary Feeser
+# trainer_and_consultant: [automation, telecom, 5g, devops, api design, cloud, docker, kubernetes]
+# webpage: [https://rzfeeser.com, https://iris7.com]
 - name: First NASA APOD playbook
   hosts: localhost
   connection: local
