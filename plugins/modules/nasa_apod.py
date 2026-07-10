@@ -129,6 +129,11 @@ def run_module():
     # assign our data to the JSON response to send back to Ansible
     result['apodjson'] = nasaresp
 
+    # check to see if nasa posted a mp4
+    is_video = nasaresp.get('url')
+    if is_video.endswith('mp4'):
+        module.fail_json(msg=f'NASA did not post an url or hdurl today. It is likely a video mp4 post instead. Unable to complete operation!')
+
     result['apodurl'] = nasaresp.get('url')
 
     result['apodhdurl'] = nasaresp.get('hdurl')
