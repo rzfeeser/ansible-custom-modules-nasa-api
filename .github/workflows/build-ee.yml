@@ -8,6 +8,7 @@ on:
       - ".github/workflows/build-ee.yml"
       - "**/requirements.yml"
       - "**/requirements.txt"
+      - "galaxy.yml"
       # - "**/bindep.txt"
   workflow_dispatch:
 
