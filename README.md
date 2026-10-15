@@ -24,11 +24,17 @@ So far (9) custom Ansible modules have been created:
 
 Most of these custom modules require a *very* popular Python library called **requests** installed on the hosts they execute on in order to function. Additionally, the nasa_neow module requires the **pyyaml** library to perform the JSON to YAML conversion. See the **Getting Started** section for more help with installing these libraries.
 
+### ansible-runner
+
+Run any playbook solution with ansible runner via (playbook needs to be in a `project/` dir relative to where you call the command from):
+
+    ansible-runner run --process-isolation --process-isolation-executable docker --container-image ghcr.io/rzfeeser/ansible-custom-modules-nasa-api/nasa-ee:latest -p playbook01.yml .
+
 ### Ansible Collection - rzfeeser.nasa
 
 This repository has recently been converted to a collection, `rzfeeser.nasa`. To install, use:
 
-    ansible-galaxy collection install git@github.com:rzfeeser/ansible-custom-modules-nasa-api
+    ansible-galaxy collection install git+https://github.com/rzfeeser/ansible-custom-modules-nasa-api
 
 ### Goals
 
